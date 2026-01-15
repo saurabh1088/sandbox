@@ -10,7 +10,7 @@ import Foundation
 func kickStarter() {
     print("Hello, Sandbox!")
     print("Here we start!")
-    let result = slidingWindowFixedType(array: [1, 2, 4, 5, 2, 6, 7, 9, 1, 2, 4, 5, 6, 7, 4], windowSize: 3)
+    let result = slidingWindowDynamic(array: [2, 3, 1, 2, 4, 3], target: 7)
     print(result)
 }
 
@@ -39,6 +39,23 @@ func slidingWindowFixedType(array: [Int], windowSize: Int) -> Int {
     }
     
     return finalSum
+}
+
+func slidingWindowDynamic(array: [Int], target: Int) -> Int {
+    var sum = 0
+    var leftIndex = 0
+    var minLength = Int.max
+    for rightIndex in 0..<array.count {
+        sum += array[rightIndex]
+        
+        while sum >= target {
+            let currentLength = rightIndex - leftIndex + 1
+            minLength = min(minLength, currentLength)
+            sum = sum - array[leftIndex]
+            leftIndex += 1
+        }
+    }
+    return minLength == Int.max ? 0 : minLength
 }
 
 kickStarter()
