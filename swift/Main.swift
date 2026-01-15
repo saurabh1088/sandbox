@@ -10,7 +10,7 @@ import Foundation
 func kickStarter() {
     print("Hello, Sandbox!")
     print("Here we start!")
-    let result = slidingWindowDynamic(array: [2, 3, 1, 2, 4, 3], target: 7)
+    let result = newArrayByMovingAverage(array: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100], window: 2)
     print(result)
 }
 
@@ -56,6 +56,23 @@ func slidingWindowDynamic(array: [Int], target: Int) -> Int {
         }
     }
     return minLength == Int.max ? 0 : minLength
+}
+
+func newArrayByMovingAverage(array: [Int], window: Int) -> [Double] {
+    var sum = 0
+    var finalArray = [Double]()
+    for index in 0..<array.count {
+        sum += array[index]
+        
+        if index >= window {
+            sum = sum - array[index - window]
+        }
+        
+        let base = index + 1 < window ? Double(index + 1) : Double(window)
+        let average = Double(sum) / base
+        finalArray.append(average)
+    }
+    return finalArray
 }
 
 kickStarter()
