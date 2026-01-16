@@ -1,11 +1,3 @@
 array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(array[0])
-print(array[1])
-print(array[2])
-print(array[3])
-print(array[4])
-print(array[5])
-print(array[6])
-print(array[7])
-print(array[8])
-print(array[9])
+for index, element in enumerate(array):
+    print(f"Index: {index}, Address: {id(element)}, Value: {element}")
