@@ -1,5 +1,6 @@
 import numpy as np
 
+# ----------- Basic Matrix Multiplication -----------
 # Matrix A - 2x3
 matrix_a = np.array([
     [1, 2, 3],
@@ -31,6 +32,7 @@ print(result_dot)
 # ])
 # invalid_result = matrix_a @ matrix_c  # This will raise a ValueError
 
+# ----------- Advanced Matrix Operations -----------
 # Matrix Transposition
 transposed_a = matrix_a.T
 print(transposed_a)
@@ -76,6 +78,31 @@ items = np.array([
 scores = users @ items
 print(scores)
 
+# ----------- Additional Examples -----------
+# Neural Network Layer Computation
+print("Neural Network Layer Computation Example:")
+# Batch of 3 inputs, each with 4 features
+X = np.array([
+    [1.0, 0.5, 0.2, 0.1],
+    [0.9, 0.1, 0.4, 0.7],
+    [0.3, 0.8, 0.6, 0.2]
+])
+
+# Weights: 4 inputs → 2 neurons
+W = np.array([
+    [0.2, 0.5],
+    [0.1, 0.9],
+    [0.4, 0.3],
+    [0.7, 0.8]
+])
+
+# Bias
+b = np.array([0.1, 0.2])
+
+# Forward pass
+Z = X @ W + b
+print(Z)
+
 
 # TODOs
 # Batch matmul
@@ -83,3 +110,10 @@ print(scores)
 # Solving systems
 # Broadcasting
 # Performance considerations
+
+# TODOs Next Level
+# Eigenvalues & Eigenvectors
+# Singular Value Decomposition (SVD)
+# Matrix multiplication in neural networks
+# Sparse matrices (scipy.sparse)
+# GPU acceleration (CuPy / PyTorch)
