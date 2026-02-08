@@ -34,3 +34,27 @@ print(add_item("banana"))
 print(add_item("orange"))
 # Here the output will be ['apple', 'banana', 'orange'] because the default list is shared across all calls to the function.
 # To avoid this, we can use None as the default value and create a new list inside the function if items is None.
+
+# Decorators
+def some_simple_function():
+    print("This is a simple function.")
+
+def decorated_function(func):
+    def decorated():
+        print("Before the function is called.")
+        func()
+        print("After the function is called.")
+    return decorated
+
+@decorated_function
+def syntactically_decorated_function():
+    print("This is a syntactically decorated function.")
+
+print("\n Decorator example:")
+print("Without decorator:")
+some_simple_function()
+print("\nWith decorator:")
+decorated_simple_function = decorated_function(some_simple_function)
+decorated_simple_function()
+print("\nSyntactically decorated function:")
+syntactically_decorated_function()
