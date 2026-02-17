@@ -34,3 +34,7 @@ list_example_six = ["Even" if x % 2 == 0 else "Odd" for x in sample_long_list]
 print("\nList comprehension example to label numbers as 'Even' or 'Odd'")
 print("list_example_six: ", list_example_six)
 
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+list_example_seven = [num for row in matrix for num in row]
+print("\nList comprehension example to flatten a 2D list (matrix)")
+print("list_example_seven: ", list_example_seven)
